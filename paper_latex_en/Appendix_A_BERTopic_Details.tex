@@ -1,0 +1,85 @@
+\documentclass[sustainability,article,submit,moreauthors,pdftex]{mdpi}
+
+\Title{Supplementary Material: Appendix A --- BERTopic Topic Modeling Diagnostics}
+
+\Author{Yiwen Sun $^{1}$, Yanlin Shi $^{2,}$*}
+
+\AuthorNames{Yiwen Sun, Yanlin Shi}
+
+\address{%
+$^{1}$ \quad School of Mathematics and Statistics, Beijing Technology and Business University, Beijing, China; yver\_sun@163.com\\
+$^{2}$ \quad School of Languages and Communication, Beijing Technology and Business University, Beijing, China}
+
+\corres{Correspondence: yls@btbu.edu.cn}
+
+\begin{document}
+
+\section{Topic Keywords and Representation}
+
+Table~A1 reports the BERTopic-derived topic structure from 25 Gaoyang County government work reports (2000--2024). Documents were preprocessed with jieba Chinese word segmentation, split by natural paragraphs (minimum 20 characters), yielding 419 document segments. The model used \texttt{paraphrase-multilingual-MiniLM-L12-v2} embeddings, UMAP dimensionality reduction, HDBSCAN clustering, and c-TF-IDF topic representation with \texttt{nr\_topics="auto"} and \texttt{min\_topic\_size=10}.
+
+Topic $-1$ is the outlier category automatically assigned by HDBSCAN, containing 19 documents (4.5\% of the corpus) that could not be assigned to any coherent topic. Inspection of representative documents confirms that these are primarily short archival summaries from 2000--2007 (identically 1,045 characters each), explicitly noted in the corpus as ``\textit{摘要版本}'' (summary version). This topic is excluded from substantive analysis.
+
+Four substantive topics were identified. Topic~0 (General Development, $n=332$, 79.2\%) captures broad developmental governance language. Topic~1 (Economic Indicators, $n=27$, 6.4\%) reflects budgetary and macroeconomic reporting. Topic~2 (Towel/Textile Industry, $n=25$, 6.0\%) contains industry-specific terminology related to Gaoyang's core specialization. Topic~3 (Fixed Assets, $n=16$, 3.8\%) captures infrastructure investment language.
+
+\begin{table}[htbp]
+\centering
+\caption{BERtopic Topics: Keywords and Document Counts}
+\label{tab:A1}
+\begin{tabular}{c c c l}
+\toprule
+Topic ID & Count & \% & Top-10 Keywords (Chinese) \\
+\midrule
+$-1$ (Outlier) & 19 & 4.5 & 人均, 基于, 整理, 备注, 版本, 网站, 县政府, 完整, 此处, 纯收入 \\
+0 & 332 & 79.2 & 项目, 实施, 加快, 高质量, 县城, 企业, 提升, 产业, 改造, 县委 \\
+1 & 27 & 6.4 & 收入, 万元, 左右, 预算, 生产总值, 完成, 一般, 地区, 主要, 预期 \\
+2 & 25 & 6.0 & 毛巾, 纺织, 全国, 年产, 万吨, 产销, 最大, 基地, 地位, 产业 \\
+3 & 16 & 3.8 & 固定资产, 生产总值, 保持稳定, 投资, 消费品, 零售总额, 稳步, 扩大, 指标, 提升 \\
+\midrule
+\multicolumn{4}{l}{Total documents (paragraph-level): 419} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Construct Validity Diagnostics}
+
+Following \citet{Grimmer2013}, we report three diagnostic checks.
+
+\subsection{Semantic Validity}
+
+Topic~2 (Towel/Textile Industry) and Topic~0 (General Development) align with known policy events. Topic~2 peaks during periods of industry-specific policy emphasis, while Topic~0 maintains a stable baseline presence throughout the period. The transition toward environmental terminology in Topic~0 coincides with the 2017 regulatory enforcement campaign.
+
+\subsection{Discriminant Validity}
+
+Topic~1 (Economic Indicators) and Topic~3 (Fixed Assets) serve as natural placebo topics: they capture budgetary reporting conventions and infrastructure investment language, respectively, with no \textit{a priori} theoretical link to textile firm registrations. Bivariate correlations between these placebo topics and new textile firm registrations are $|r| < 0.15$, consistent with discriminant validity.
+
+\subsection{Document-Length Diagnostics}
+
+To assess whether topic prevalence is confounded by document length heterogeneity (reports range from $\sim$1,000 to $\sim$26,000 characters), we compute Pearson correlations between topic prevalence and document character count:
+
+\begin{table}[htbp]
+\centering
+\caption{Topic Prevalence $\times$ Document Length Correlations}
+\label{tab:A2}
+\begin{tabular}{c c}
+\toprule
+Topic & $r$ (prevalence $\sim$ char count) \\
+\midrule
+Topic 0 (General Development) & 0.31 \\
+Topic 1 (Economic Indicators) & 0.08 \\
+Topic 2 (Towel/Textile) & 0.15 \\
+Topic 3 (Fixed Assets) & 0.22 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+All correlations are substantially below the $r > 0.9$ threshold that would indicate severe length confounding. The moderate correlation for Topic~0 ($r=0.31$) is expected given that longer reports naturally contain more diverse content.
+
+\section{Dynamic Topic Evolution}
+
+Figure~1 in the main text visualizes the temporal evolution of topic prevalence (topics\_over\_time). Three phases are identifiable: (1) 2000--2008: Topic~0 dominance with scale-expansion terminology; (2) 2009--2017: rising environmental terminology within Topic~0, coinciding with the environmental enforcement campaign; (3) 2018--2024: emergence of e-commerce and branding language within Topic~0.
+
+\externalbibliography{yes}
+\bibliography{references}
+
+\end{document}

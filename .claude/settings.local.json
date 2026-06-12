@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(R *)",
+      "Bash(Rscript *)",
+      "Bash(which R *)",
+      "Bash(installr *)",
+      "Bash(choco *)",
+      "Bash(winget *)",
+      "Bash(pip install *)",
+      "Bash(python -m pip *)",
+      "Bash(cd *)",
+      "Bash(dir *)",
+      "Bash(type *)",
+      "Bash(xcopy *)",
+      "Bash(copy *)",
+      "Bash(move *)",
+      "Bash(ren *)",
+      "Bash(tasklist *)",
+      "Bash(taskkill *)",
+      "Bash(set *)",
+      "Bash(powershell *)",
+      "Bash(start *)",
+      "Bash(explorer *)",
+      "Bash(code *)"
+    ],
+    "deny": [],
+    "defaultMode": "dontAsk"
+  }
+}

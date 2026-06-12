@@ -1,0 +1,2 @@
+﻿TypeError: unsupported format string passed to None
+Type.__format__
