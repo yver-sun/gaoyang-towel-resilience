@@ -57,9 +57,13 @@ We draw on four data streams:
 1. **Policy text corpus:** 25 consecutive Gaoyang County government work reports (2000–2024). An important data constraint must be disclosed: reports from 2000–2014 are archival summaries (~1,000 characters each), while reports from 2015–2024 are full-text documents ranging from ~2,000 to ~26,000 characters. The 2000–2007 summaries are identically sized (1,045 characters), reflecting a standardized archival format. This heterogeneity is intrinsic to longitudinal archival research on Chinese county governments—complete reports from the early 2000s were not digitally preserved. We address this through topic prevalence normalization (reporting topic proportions rather than absolute counts) and by transparently disclosing the constraint. Section 5.3 discusses robustness to excluding pre-2015 years.
 2. **Firm registration panel:** Textile firm registration data from the State Administration for Market Regulation database, covering Gaoyang and 23 surrounding counties in Baoding Prefecture (2000–2024). The panel spans N=600 county-year observations.
 3. **Industry indices:** Quarterly product price index from the *Hebei-Gaoyang Textile Index* (2020–2026, 25 quarterly observations), compiled by the China National Textile and Apparel Council.
-4. **Economic controls:** GDP, population, and fiscal expenditure from the *China County Statistical Yearbook* (2000–2023). 
+4. **Economic controls:** GDP, population, and fiscal expenditure from the *China County Statistical Yearbook* (2000–2023).
+
+Note that the SCM analysis (Section 3.3) uses 2000–2024 data (N=25) to maintain a balanced donor pool of 23 counties, whereas the ITS analysis uses the full available Gaoyang time series through 2026 (N=27). This difference reflects a standard constraint in comparative case studies: the donor pool determines the feasible sample period for cross-sectional methods, while single-unit time-series methods can exploit the complete temporal record.
 
 **Table 1: Descriptive Statistics for Key Variables**
+
+*Note: Gaoyang-specific descriptive statistics (rows 1–6) are computed on the SCM sample period (2000–2024, N=25). The ITS analysis (Section 4.2) uses the extended sample (2000–2026, N=27), reflecting the full availability of the single-county time series. The county panel covers 24 counties × 25 years (2000–2024, N=600).*
 
 | Variable | N | Mean | SD | Range |
 | :--- | :--- | :--- | :--- | :--- |

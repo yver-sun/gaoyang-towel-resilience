@@ -83,7 +83,7 @@ We propose:
 \section{Research Design and Data}\label{sec:method}
 
 \subsection{Data Sources}
-We draw on four data streams: (1) \textbf{Policy text corpus:} 25 consecutive Gaoyang County government work reports (2000--2024). An important data constraint must be disclosed: reports from 2000--2014 are archival summaries ($\sim$1,000 characters each, with 2000--2007 being identically 1,045 characters), while reports from 2015--2024 are full-text documents ranging from $\sim$2,000 to $\sim$26,000 characters. This heterogeneity is intrinsic to longitudinal archival research on Chinese county governments---complete reports from the early 2000s were not digitally preserved. We address this through topic prevalence normalization and transparent disclosure; Section~5.3 discusses robustness to excluding pre-2015 years. (2) \textbf{Firm registration panel:} Textile firm registration data from the State Administration for Market Regulation database, covering Gaoyang and 23 surrounding counties in Baoding Prefecture (2000--2024, N=600 county-year observations). (3) \textbf{Industry indices:} Quarterly product price index from the \emph{Hebei-Gaoyang Textile Index} (2020--2026, 25 quarterly observations), compiled by the China National Textile and Apparel Council. (4) \textbf{Economic controls:} GDP, population, and fiscal expenditure from the \emph{China County Statistical Yearbook} (2000--2023). Table~1 reports descriptive statistics for the main variables.
+We draw on four data streams: (1) \textbf{Policy text corpus:} 25 consecutive Gaoyang County government work reports (2000--2024). An important data constraint must be disclosed: reports from 2000--2014 are archival summaries ($\sim$1,000 characters each, with 2000--2007 being identically 1,045 characters), while reports from 2015--2024 are full-text documents ranging from $\sim$2,000 to $\sim$26,000 characters. This heterogeneity is intrinsic to longitudinal archival research on Chinese county governments---complete reports from the early 2000s were not digitally preserved. We address this through topic prevalence normalization and transparent disclosure; Section~5.3 discusses robustness to excluding pre-2015 years. (2) \textbf{Firm registration panel:} Textile firm registration data from the State Administration for Market Regulation database, covering Gaoyang and 23 surrounding counties in Baoding Prefecture (2000--2024, N=600 county-year observations). (3) \textbf{Industry indices:} Quarterly product price index from the \emph{Hebei-Gaoyang Textile Index} (2020--2026, 25 quarterly observations), compiled by the China National Textile and Apparel Council. (4) \textbf{Economic controls:} GDP, population, and fiscal expenditure from the \emph{China County Statistical Yearbook} (2000--2023). Table~1 reports descriptive statistics for the main variables. Note that the SCM analysis (Section~3.3) uses 2000--2024 data ($N=25$) to maintain a balanced donor pool of 23 counties, whereas the ITS analysis uses the full available Gaoyang time series through 2026 ($N=27$). This difference reflects a standard constraint in comparative case studies: the donor pool determines the feasible sample period for cross-sectional methods, while single-unit time-series methods can exploit the complete temporal record.
 
 \begin{table}[htbp]
 \centering
@@ -102,6 +102,10 @@ Report length (thousand chars) & 25 & 6.02 & 9.33 & 0.75--25.73 \\
 GDP (log, county panel) & 600 & 12.81 & 1.24 & 8.50--16.80 \\
 \bottomrule
 \end{tabularx}
+
+\vspace{2pt}
+{\footnotesize Note: Gaoyang-specific descriptive statistics (rows 1--6) are computed on the SCM sample period (2000--2024, $N=25$). The ITS analysis (Section~4.2) uses the extended sample (2000--2026, $N=27$), reflecting the full availability of the single-county time series. The county panel covers 24 counties $\times$ 25 years (2000--2024, $N=600$).}
+
 \end{table}
 
 \subsection{BERTopic Text Analysis}
