@@ -38,6 +38,9 @@ desktop.ini
 # data/**/*.csv
 # data/**/*.xlsx
 
+# Large data files (>100MB, use Git LFS or external storage)
+data/panel/区县细分行业-注册企业数据（1949-2024年）.csv
+
 # Ollama models
 *.gguf
 
