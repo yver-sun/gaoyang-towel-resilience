@@ -17,9 +17,9 @@ Traditional labor-intensive industrial clusters in developing economies face exi
 
 ## 1. Introduction
 
-The global economic landscape has shifted from hyper-globalization to an era of *polycrisis* (Tooze, 2022). Traditional labor-intensive industrial clusters in developing economies confront overlapping shocks—environmental regulation, trade friction, and technological disruption—that pose existential threats to their sustainable development (Gong & Hassink, 2022; Zhou et al., 2017). Some clusters collapse under these pressures, while others demonstrate remarkable adaptability, successfully upgrading their value chains while meeting strict environmental standards. This divergence raises a critical question: How do traditional industrial clusters construct and evolve resilience under compounding shocks, and what role does local government policy attention play in balancing economic survival with environmental sustainability?
+The global economic landscape has shifted from hyper-globalization to an era of *polycrisis* (Tooze, 2021). Traditional labor-intensive industrial clusters in developing economies confront overlapping shocks—environmental regulation, trade friction, and technological disruption—that pose existential threats to their sustainable development (Gong et al., 2022; Zhou et al., 2017). Some clusters collapse under these pressures, while others demonstrate remarkable adaptability, successfully upgrading their value chains while meeting strict environmental standards. This divergence raises a critical question: How do traditional industrial clusters construct and evolve resilience under compounding shocks, and what role does local government policy attention play in balancing economic survival with environmental sustainability?
 
-Regional Economic Resilience (RER) has become a central concept in economic geography and sustainability studies (Martin, 2012; Boschma, 2015; Boschma, 2022). However, two gaps persist. First, empirical studies predominantly focus on advanced manufacturing clusters in developed nations, leaving traditional clusters in developing economies understudied (Li et al., 2022). Second, macro-level econometric analyses often treat institutional mechanisms as a *black box*, neglecting how specific policy mixes evolve in response to shocks (Rothgang & Lageman, 2024; Bachtler & Mendez, 2024). Recent scholarship calls for more granular approaches that trace micro-level transmission mechanisms between policy interventions and sustainable firm outcomes (Feldman & Lowe, 2021; Hassink & Hu, 2023).
+Regional Economic Resilience (RER) has become a central concept in economic geography and sustainability studies (Martin, 2012; Boschma, 2015; Martin & Sunley, 2015). However, two gaps persist. First, empirical studies predominantly focus on advanced manufacturing clusters in developed nations, leaving traditional clusters in developing economies understudied (Zhu et al., 2022). Second, macro-level econometric analyses often treat institutional mechanisms as a *black box*, neglecting how specific policy mixes evolve in response to shocks (Grillitsch & Sotarauta, 2020; Hassink et al., 2019). Recent scholarship calls for more granular approaches that trace micro-level transmission mechanisms between policy interventions and sustainable firm outcomes (Rodríguez-Pose, 2013; Hu & Hassink, 2017).
 
 We address these gaps through a mixed-methods longitudinal case study (Creswell & Clark, 2017) of the Gaoyang towel cluster in Hebei Province, China. With over 400 years of textile tradition and approximately one-third of national towel production, Gaoyang has navigated WTO accession, the 2008 financial crisis, a draconian environmental campaign (2017), trade friction, and the COVID-19 pandemic. This sequence of overlapping shocks makes Gaoyang an analytically rich case for studying sustainable transitions.
 
@@ -30,7 +30,7 @@ We make three contributions. First, we introduce a conceptual distinction betwee
 ## 2. Theoretical Framework
 
 ### 2.1 Regional Economic Resilience and Micro-mechanisms
-Resilience is conventionally defined as a regional economy's capacity to withstand, recover from, and reorganize after shocks (Martin, 2012; Martin & Sunley, 2015). In the *polycrisis* era, shocks are overlapping and structural rather than isolated and cyclical, shifting the relevant metric from *recovery* to *adaptability* and *transformability* (Bristow & Healy, 2023; Henry et al., 2021).
+Resilience is conventionally defined as a regional economy's capacity to withstand, recover from, and reorganize after shocks (Martin, 2012; Martin & Sunley, 2015). In the *polycrisis* era, shocks are overlapping and structural rather than isolated and cyclical, shifting the relevant metric from *recovery* to *adaptability* and *transformability* (Bristow & Healy, 2014; Sutton et al., 2023).
 
 To open the *policy–resilience* black box, we draw on New Institutional Economics. Consider a representative SME in a traditional textile cluster. Its profit function depends on market access, production costs, and compliance costs:
 
@@ -43,7 +43,7 @@ Effective policy intervention operates through two distinct micro-channels. **Co
 ### 2.2 Policy Attention versus Institutional Supply
 A central conceptual contribution of this paper is distinguishing *policy attention* from *institutional supply*. Policy attention refers to thematic emphasis in official documents—what policymakers *signal* as priorities (Flanagan et al., 2011). Institutional supply refers to actual resource allocation: fiscal expenditure, infrastructure investment, and regulatory enforcement. We measure policy attention through NLP-based topic modeling, openly acknowledging this is an imperfect proxy.
 
-Following evolutionary economic geography (Sotarauta, 2017), local governments act as institutional entrepreneurs. During regulatory shocks, they provide capital-intensive public infrastructure to *socialize* firms' compliance costs, securing *baseline resilience*. After stabilization, the policy mix shifts toward digital enablement and branding to reduce transaction costs, fostering *value resilience* (Sun & Liu, 2023).
+Following evolutionary economic geography (Sotarauta, 2017), local governments act as institutional entrepreneurs. During regulatory shocks, they provide capital-intensive public infrastructure to *socialize* firms' compliance costs, securing *baseline resilience*. After stabilization, the policy mix shifts toward digital enablement and branding to reduce transaction costs, fostering *value resilience* (Tian & Guo, 2023).
 
 We propose:
 *   **H1 (Baseline Resilience):** Policy attention shift toward environmental infrastructure positively correlates with sustained firm registration through compliance cost socialization.
@@ -249,33 +249,29 @@ We enumerate limitations candidly to guide future research.
 
 ## References
 
-Abadie, A., Diamond, A., & Hainmueller, J. (2010). Synthetic control methods for comparative case studies. *Journal of the American Statistical Association*, 105(490), 493–505.
+Abadie, A., Diamond, A., & Hainmueller, J. (2010). Synthetic control methods for comparative case studies: Estimating the effect of California's tobacco control program. *Journal of the American Statistical Association*, 105(490), 493–505.
 
 Arkhangelsky, D., Athey, S., Hirshberg, D. A., Imbens, G. W., & Wager, S. (2021). Synthetic difference-in-differences. *American Economic Review*, 111(12), 4088–4118.
 
-Bachtler, J., & Mendez, C. (2024). Policy mixes for industrial transitions: The role of regional governments. *Regional Studies*, 58(1), 12–25.
-
-Bernal, J. L., Cummins, S., & Gasparrini, A. (2017). Interrupted time series regression for the evaluation of public health interventions. *International Journal of Epidemiology*, 46(1), 348–355.
+Bernal, J. L., Cummins, S., & Gasparrini, A. (2017). Interrupted time series regression for the evaluation of public health interventions: A tutorial. *International Journal of Epidemiology*, 46(1), 348–355.
 
 Boschma, R. (2015). Towards an evolutionary perspective on regional resilience. *Regional Studies*, 49(5), 733–751.
 
-Boschma, R. (2022). Regional resilience: Theoretical and empirical perspectives. *Cambridge Journal of Regions, Economy and Society*, 15(1), 1–18.
-
-Bristow, G., & Healy, A. (2023). Smart resilience: A new perspective on regional economic resilience. *Regional Studies*, 57(5), 900–913.
+Bristow, G., & Healy, A. (2014). Regional resilience: An agency perspective. *Regional Studies*, 48(5), 923–935.
 
 Cai, X., Lu, Y., Wu, M., & Yu, L. (2016). Does environmental regulation drive away inbound foreign direct investment? Evidence from a quasi-natural experiment in China. *Journal of Development Economics*, 123, 73–85.
 
-Creswell, J. W., & Clark, V. L. P. (2017). *Designing and conducting mixed methods research*. Sage publications.
-
-Feldman, M. P., & Lowe, N. (2021). The role of institutions in regional economic resilience. *Regional Studies*, 55(3), 414–425.
+Creswell, J. W., & Clark, V. L. P. (2017). *Designing and conducting mixed methods research* (3rd ed.). Sage Publications.
 
 Flanagan, K., Uyarra, E., & Laranja, M. (2011). Reconceptualising the policy mix for innovation. *Research Policy*, 40(5), 702–713.
 
 Gentzkow, M., Kelly, B., & Taddy, M. (2019). Text as data. *Journal of Economic Literature*, 57(3), 535–574.
 
-Gong, H., & Hassink, R. (2022). Globalisation and regional resilience. *Cambridge Journal of Regions, Economy and Society*, 15(3), 501–515.
+Gong, H., Hassink, R., & Wang, C. C. (2022). Strategic coupling and institutional innovation in times of upheavals: The industrial chain chief model in Zhejiang, China. *Cambridge Journal of Regions, Economy and Society*, 15(2), 279–303.
 
-Greenstone, M., List, J. A., & Syverson, C. (2012). The effects of environmental regulation on the competitiveness of US manufacturing. *NBER Working Paper*, No. 18391.
+Greenstone, M., List, J. A., & Syverson, C. (2012). The effects of environmental regulation on the competitiveness of US manufacturing. *NBER Working Paper*, No. 18392.
+
+Grillitsch, M., & Sotarauta, M. (2020). Trinity of change agency, regional development paths and opportunity spaces. *Progress in Human Geography*, 44(4), 704–723.
 
 Grimmer, J., & Stewart, B. M. (2013). Text as data: The promise and pitfalls of automatic content analysis methods for political texts. *Political Analysis*, 21(3), 267–297.
 
@@ -283,28 +279,30 @@ Grootendorst, M. (2022). BERTopic: Neural topic modeling with a class-based TF-I
 
 Hansen, A. L. (2026). *Validating Large Language Model Annotations* (Finance and Economics Discussion Series No. 2026-020). Board of Governors of the Federal Reserve System. https://doi.org/10.17016/FEDS.2026.020
 
-Hassink, R., & Hu, X. (2023). The resilience of traditional industrial clusters: A critical review. *European Planning Studies*, 31(6), 1175–1195.
+Hassink, R., Isaksen, A., & Trippl, M. (2019). Towards a comprehensive understanding of new regional industrial path development. *Regional Studies*, 53(11), 1636–1645.
 
-Henry, N., et al. (2021). Regional economic resilience: A review of the empirical literature. *Regional Studies*, 55(10), 1767–1783.
-
-Li, X., Zhang, Y., & Wang, J. (2022). Resilience of industrial clusters to environmental shocks: Evidence from China. *Sustainability*, 14(12), 7382.
+Hu, X., & Hassink, R. (2017). Exploring adaptation and adaptability in uneven economic resilience: A tale of two Chinese mining regions. *Cambridge Journal of Regions, Economy and Society*, 10(3), 527–541.
 
 Ludbrook, J., & Dudley, H. (1998). Why permutation tests are superior to t and F tests in biomedical research. *The American Statistician*, 52(2), 127–132.
 
 Martin, R. (2012). Regional economic resilience, hysteresis and recessionary shocks. *Journal of Economic Geography*, 12(1), 1–32.
 
-Martin, R., & Sunley, P. (2015). On the spatial anatomy of macroeconomic resilience. *Journal of Economic Geography*, 15(1), 1–32.
+Martin, R., & Sunley, P. (2015). On the notion of regional economic resilience: Conceptualization and explanation. *Journal of Economic Geography*, 15(1), 1–42.
 
 Newey, W. K., & West, K. D. (1987). A simple, positive semi-definite, heteroskedasticity and autocorrelation consistent covariance matrix. *Econometrica*, 55(3), 703–708.
 
 Porter, M. E., & van der Linde, C. (1995). Toward a new conception of the environment-competitiveness relationship. *Journal of Economic Perspectives*, 9(4), 97–118.
 
-Rothgang, M., & Lageman, B. (2024). Cluster resilience and institutional response: A systematic review. *European Planning Studies*, 56(2), 200–220.
+Rodríguez-Pose, A. (2013). Do institutions matter for regional development? *Regional Studies*, 47(7), 1034–1047.
 
-Sotarauta, M. (2017). Institutional entrepreneurship and regional development. *Regional Studies*, 51(1), 14–28.
+Sotarauta, M. (2017). An actor-centric bottom-up view of institutions: Combinatorial knowledge dynamics through the eyes of institutional entrepreneurs and institutional navigators. *Environment and Planning C: Politics and Space*, 35(4), 584–599.
 
-Sun, Q., & Liu, M. (2023). Digital transformation and regional resilience: The role of e-commerce. *Sustainability*, 15(4), 3105.
+Sutton, J., Arcidiacono, A., Torrisi, G., & Arku, R. N. (2023). Regional economic resilience: A scoping review. *Progress in Human Geography*, 47(4), 500–532.
 
-Tooze, A. (2022). *Shutdown: How Covid shook the world economy*. Penguin Books.
+Tian, Y., & Guo, L. (2023). Digital development and the improvement of urban economic resilience: Evidence from China. *Heliyon*, 9(10), e21087.
 
-Zhou, Y., Zhu, S., & He, C. (2017). How do environmental regulations affect industrial dynamics? Evidence from China's pollution-intensive industries. *Regional Studies*, 51(11), 1651–1664.
+Tooze, A. (2021). *Shutdown: How Covid shook the world's economy*. Viking.
+
+Zhou, Y., Zhu, S., & He, C. (2017). How do environmental regulations affect industrial dynamics? Evidence from China's pollution-intensive industries. *Habitat International*, 60, 10–18.
+
+Zhu, Y., Wang, N., & Xie, R. (2022). Exploring the role of heterogeneous environmental regulations in industrial agglomeration: A fresh evidence from China. *Sustainability*, 14(17), 10902.
