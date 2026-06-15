@@ -25,6 +25,12 @@ Beijing Technology and Business University
 Email: yver_sun@163.com
  
 Yanlin Shi (Corresponding Author)
+Associate Professor
 School of Languages and Communication
 Beijing Technology and Business University
-Email: yls@btbu.edu.cn
+Email: shiyanlin@th.btbu.edu.cn
+
+Jiarui Liang
+School of Mathematics and Statistics
+Beijing Technology and Business University
+Email: 2151460699@qq.com

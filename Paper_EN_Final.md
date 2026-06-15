@@ -1,10 +1,10 @@
 # Navigating the Polycrisis: Institutional Responses and Sustainable Cluster Resilience in China's Traditional Textile Industry
 
-**Yiwen Sun $^{1}$ and Yanlin Shi $^{2,*}$**
+**Yiwen Sun $^{1}$, Yanlin Shi $^{2,*}$, and Jiarui Liang $^{1}$**
 
-$^{1}$ School of Mathematics and Statistics, Beijing Technology and Business University, Beijing 100048, China; yver_sun@163.com
-$^{2}$ School of Languages and Communication, Beijing Technology and Business University, Beijing 100048, China; yls@btbu.edu.cn
-* **Correspondence:** yls@btbu.edu.cn
+$^{1}$ School of Mathematics and Statistics, Beijing Technology and Business University, Beijing 100048, China; yver_sun@163.com (Y.S.); 2151460699@qq.com (J.L.)
+$^{2}$ School of Languages and Communication, Beijing Technology and Business University, Beijing 100048, China; shiyanlin@th.btbu.edu.cn
+* **Correspondence:** shiyanlin@th.btbu.edu.cn
 
 ---
 
@@ -204,7 +204,7 @@ We enumerate limitations candidly to guide future research.
 
 ---
 
-**Author Contributions:** Conceptualization, Yiwen Sun and Yanlin Shi; methodology, Yiwen Sun; formal analysis, Yiwen Sun; writing—original draft preparation, Yiwen Sun and Yanlin Shi; writing—review and editing, Yiwen Sun and Yanlin Shi; visualization, Yiwen Sun. All authors have read and agreed to the published version of the manuscript.
+**Author Contributions:** Conceptualization, Yiwen Sun and Yanlin Shi; methodology, Yiwen Sun; formal analysis, Yiwen Sun and Jiarui Liang; writing—original draft preparation, Yiwen Sun and Yanlin Shi; writing—review and editing, Yiwen Sun, Yanlin Shi, and Jiarui Liang; visualization, Yiwen Sun. All authors have read and agreed to the published version of the manuscript.
 
 **Funding:** This research received no external funding.
 
