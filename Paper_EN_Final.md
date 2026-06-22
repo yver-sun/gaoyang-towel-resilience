@@ -1,4 +1,4 @@
-# Navigating the Polycrisis: Institutional Responses and Sustainable Cluster Resilience in China's Traditional Textile Industry
+# Policy Attention versus Institutional Supply: How Local Governments Foster Cluster Resilience — A Mixed-Methods Case Study of China's Gaoyang Textile Industry
 
 **Yiwen Sun $^{1}$, Yanlin Shi $^{2,*}$, and Jiarui Liang $^{1}$**
 

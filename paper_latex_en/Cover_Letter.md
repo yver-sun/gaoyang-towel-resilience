@@ -1,4 +1,4 @@
-﻿Dear Editor of *Sustainability*,
+﻿﻿Dear Editor of *Sustainability*,
  
 I am writing to submit our manuscript entitled, "**Navigating the Polycrisis: Institutional Responses and Sustainable Cluster Resilience in China's Traditional Textile Industry**," for consideration as an Original Research Article in your esteemed journal, within the section related to Economic and Business Aspects of Sustainability.
  
