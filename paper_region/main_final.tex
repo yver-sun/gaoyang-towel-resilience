@@ -88,7 +88,7 @@ Traditional labor-intensive industrial clusters in developing economies face exi
 
 \keywords{Regional Economic Resilience; Policy Attention; Institutional Supply; Industrial Clusters; BERTopic; Synthetic Control Method; China; Textile Industry}
 
-% ── Institutional Background ──
+% ── Introduction ──
 \section{Introduction}\label{sec:intro}
 
 The global economic landscape has shifted from hyper-globalization to an era of overlapping shocks---environmental regulation, trade friction, and technological disruption---that pose existential threats to the sustainable development of traditional labor-intensive industrial clusters in developing economies \citep{Gong2022, Zhou2017}. Some clusters collapse under these pressures, while others demonstrate remarkable adaptability, successfully upgrading their value chains while meeting strict environmental standards. This divergence raises a critical question: How do traditional industrial clusters construct and evolve resilience under compounding shocks, and what role does local government policy attention play in balancing economic survival with environmental sustainability?
@@ -225,12 +225,12 @@ Phase & Period & Dominant Topics & Resilience Strategy \\
 \subsection{SCM Patterns (H1)}
 Table~\ref{tab:scm} reports the structured case comparison. The pre-treatment RMSPE is 32.4, with synthetic weights concentrated predominantly on a single donor county (weight $>0.85$). This concentration reflects Gaoyang's distinctive textile specialization---no convex combination of other Baoding counties closely replicates its industrial structure. We therefore treat the SCM as a systematic descriptive comparison rather than a causal identification strategy.
 
-Post-treatment (2017--2021), Gaoyang averaged 186.8 more textile firm registrations than the comparison county. This pattern is consistent with H1 but should not be interpreted causally: the post-2022 reversal (gap = $-36.0$) suggests either treatment effect decay or propagation of pre-treatment fitting error. In-space placebo tests rank Gaoyang 6th of 23 counties (top 26\%) on the post/pre RMSPE ratio---above the conventional 5\% threshold for statistical significance ($p = 0.26$, Fisher's exact test on the rank distribution). The quantitative pattern is directionally aligned with the theoretical expectation that environmental infrastructure investment supported firm entry during the regulatory shock, but the single-donor concentration and limited statistical power preclude strong causal inference.
+Post-treatment (2017--2021), Gaoyang averaged 186.8 more textile firm registrations than the comparison county. This pattern is consistent with H1 but should not be interpreted causally: the post-2022 reversal (gap = $-36.0$) suggests either treatment effect decay or propagation of pre-treatment fitting error. In-space placebo tests rank Gaoyang 6th among the 23 donor counties (top 26\%) on the post/pre RMSPE ratio---above the conventional 5\% threshold for statistical significance ($p = 0.26$, Fisher's exact test on the rank distribution). The quantitative pattern is directionally aligned with the theoretical expectation that environmental infrastructure investment supported firm entry during the regulatory shock, but the single-donor concentration and limited statistical power preclude strong causal inference.
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.95\textwidth]{figures/Fig2_SDiD_Complex_EN.pdf}
-    \caption{Synthetic Control Method (SCM) analysis of the 2017 environmental regulation shock. Panel (a): Gaoyang vs.\ synthetic trajectory; Panel (b): placebo tests for all 23 counties.}
+    \caption{Synthetic Control Method (SCM) analysis of the 2017 environmental regulation shock. Panel (a): Gaoyang vs.\ synthetic trajectory; Panel (b): placebo tests for all 23 donor counties.}
     \label{fig:scm}
 \end{figure}
 
