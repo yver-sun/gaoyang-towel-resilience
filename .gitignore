@@ -29,6 +29,9 @@ venv/
 # Unrelated project
 moon-bridge/
 
+# Nested template reference (essential files already copied to paper_region/)
+paper_region/REGION/
+
 # OS files
 .DS_Store
 Thumbs.db

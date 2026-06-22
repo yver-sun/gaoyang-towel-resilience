@@ -1,0 +1,395 @@
+% REGION — The Journal of ERSA
+% Template based on region-ersa/REGION GitHub repository
+
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+
+\documentclass[a4paper, twoside, final]{article}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp}
+\else
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{longtable,booktabs,array}
+\usepackage{multirow}
+\usepackage{calc}
+\usepackage{etoolbox}
+\usepackage{float}
+
+\setcounter{secnumdepth}{5}
+\setlength{\emergencystretch}{3em}
+
+% REGION style
+\usepackage[review]{region}
+\usepackage{hyperref}
+\hypersetup{
+  pdftitle={REGION Submission},
+  pdfauthor={SUPPRESSED for peer review},
+  pdfkeywords={Regional Economic Resilience; Policy Attention; Institutional Supply; Industrial Clusters; BERTopic},
+  colorlinks=true,
+  linkcolor={blue},
+  citecolor={Blue},
+  urlcolor={blue}
+}
+
+% natbib setup
+\usepackage{natbib}
+\bibliographystyle{region}
+\bibpunct{(}{)}{,}{a}{}{,}
+
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+
+% ── Metadata ──
+\title{Policy Attention versus Institutional Supply: How Local Governments Foster Cluster Resilience---A Mixed-Methods Case Study of China's Gaoyang Textile Industry}
+
+\author{%
+Yiwen Sun\parnote{School of Mathematics and Statistics, Beijing Technology and Business University, Beijing, China (email: yver\_sun@163.com)},
+Yanlin Shi\parnote{School of Languages and Communication, Beijing Technology and Business University, Beijing, China (email: shiyanlin@th.btbu.edu.cn)},
+Jiarui Liang\parnote{School of Mathematics and Statistics, Beijing Technology and Business University, Beijing, China (email: 2151460699@qq.com)}}
+
+\date{}
+
+% Journal metadata (to be filled by editor)
+\setcounter{page}{1}
+\renewcommand{\thepage}{\arabic{page}}
+\jvol{XX}
+\jnum{X}
+\jyear{2026}
+\jpages{1--XX}
+\jauthor{Sun, Shi, Liang}
+\received{2026-XX-XX}
+\accepted{2026-XX-XX}
+\jdoi{}
+
+% ── Document ──
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Traditional labor-intensive industrial clusters in developing economies face existential threats from compounding environmental, trade, and technological shocks, yet the micro-level institutional mechanisms through which local governments foster cluster adaptability remain undertheorized. This study advances a conceptual distinction between \emph{policy attention} (discursive emphasis in official documents) and \emph{institutional supply} (actual resource allocation), and traces two sequential micro-mechanisms---compliance cost socialization through collective environmental infrastructure, and transaction cost reduction through e-commerce and regional branding---through a 25-year (2000--2024) mixed-methods case study of China's largest towel production cluster in Gaoyang County. We combine BERTopic dynamic topic modeling of government work reports with descriptive quantitative patterns from Synthetic Control Method and Interrupted Time Series analysis. The case reveals a two-stage resilience trajectory: environmental infrastructure investment secured \emph{baseline resilience} during the 2017 regulatory shock, while subsequent digital and branding policies fostered \emph{value resilience}. Quantitative patterns are directionally consistent with the theoretical framework but are properly interpreted as mechanism-illustrative rather than causal-confirmatory, given single-case constraints and limited statistical power. The paper contributes a portable conceptual framework for distinguishing policy signals from institutional actions, a microeconomic formalization of compliance cost and transaction cost channels, and a transparent template for mixed-methods policy evaluation under archival data constraints.
+\end{abstract}
+
+\jel{R11, R58, Q58, O25, C21}
+
+\keywords{Regional Economic Resilience; Policy Attention; Institutional Supply; Industrial Clusters; BERTopic; Synthetic Control Method; China; Textile Industry}
+
+% ── Institutional Background ──
+\section{Introduction}\label{sec:intro}
+
+The global economic landscape has shifted from hyper-globalization to an era of overlapping shocks---environmental regulation, trade friction, and technological disruption---that pose existential threats to the sustainable development of traditional labor-intensive industrial clusters in developing economies \citep{Gong2022, Zhou2017}. Some clusters collapse under these pressures, while others demonstrate remarkable adaptability, successfully upgrading their value chains while meeting strict environmental standards. This divergence raises a critical question: How do traditional industrial clusters construct and evolve resilience under compounding shocks, and what role does local government policy attention play in balancing economic survival with environmental sustainability?
+
+Regional Economic Resilience (RER) has become a central concept in economic geography and sustainability studies \citep{Martin2012, Boschma2015, Martin2015}. However, two gaps persist. First, empirical studies predominantly focus on advanced manufacturing clusters in developed nations, leaving traditional clusters in developing economies understudied \citep{Zhu2022}. Second, macro-level econometric analyses often treat institutional mechanisms as a \emph{black box}, neglecting how specific policy mixes evolve in response to shocks \citep{Grillitsch2020, Hassink2019}. Recent scholarship calls for more granular approaches that trace micro-level transmission mechanisms between policy interventions and firm outcomes \citep{RodriguezPose2013, HuHassink2017}.
+
+We address these gaps through a mixed-methods longitudinal case study \citep{Creswell2017} of the Gaoyang towel cluster in Hebei Province, China. With over 400 years of textile tradition and approximately one-third of national towel production, Gaoyang has navigated WTO accession, the 2008 financial crisis, a draconian environmental campaign (2017), trade friction, and the COVID-19 pandemic. This sequence of overlapping shocks makes Gaoyang an analytically rich case for studying how institutional responses interact with cluster resilience.
+
+Methodologically, we integrate computational social science with quasi-experimental causal inference, applying BERTopic \citep{Grootendorst2022}---an unsupervised neural topic modeling approach using pre-trained sentence transformer embeddings (paraphrase-multilingual-MiniLM-L12-v2), UMAP dimensionality reduction, and HDBSCAN clustering---to trace policy attention shifts across 25 years of government work reports, then triangulating with SCM \citep{Abadie2010} and ITS \citep{Bernal2017}. We openly acknowledge a key data constraint: reports from 2000--2014 are archival summaries ($\sim$1,000 characters each), while 2015--2024 reports are full-text documents (2,000--26,000 characters). This heterogeneity is inherent to longitudinal archival research on Chinese county governments and is addressed through topic prevalence normalization and transparent disclosure rather than post-hoc exclusion.
+
+We make three contributions. First, we introduce a conceptual distinction between \emph{policy attention} (discursive emphasis in official documents) and \emph{institutional supply} (actual fiscal and administrative inputs). Second, we demonstrate a mixed-methods template that openly acknowledges data constraints rather than over-claiming causal identification. Third, we provide directionally consistent but statistically qualified evidence on environmental infrastructure's role in cluster resilience, bridging the gap between environmental regulation and economic survival.
+
+% ── Institutional Background ──
+\section{Institutional Background: County Government Work Reports in China}\label{sec:background}
+
+China's county-level governments (\emph{xian}, \emph{xianjishi}, \emph{qu}) constitute the foundational administrative tier linking central mandates to local implementation. Each year, the county government delivers a \emph{Government Work Report} (GWR, \textit{zhengfu gongzuo baogao}) to the local People's Congress---a publicly available document reviewing the previous year's achievements, setting targets for the coming year, and articulating policy priorities across economic, environmental, and social domains. GWRs follow a standardized structure (previous-year review, current challenges, coming-year tasks) but vary substantially in length and specificity depending on administrative resources and archival preservation practices.
+
+Two features of GWRs are particularly relevant for this study. First, as official documents approved by the local legislature, GWRs carry institutional weight: policy priorities enumerated in the report signal the county leadership's commitment to specific agendas and are routinely cited in subsequent policy implementation. They are the closest available textual proxy for local government policy attention in China's single-party administrative system. Second, GWRs exhibit systematic temporal heterogeneity in their archival preservation: reports from the early 2000s were often preserved only as abbreviated summaries ($\sim$1,000 characters) on government websites, while reports from 2015 onward are full-text documents (2,000--26,000 characters) with detailed sectoral breakdowns. This heterogeneity is an intrinsic feature of longitudinal archival research on Chinese county governments and is addressed transparently in our analysis (Section~\ref{sec:method}).
+
+Gaoyang County, located in central Hebei Province approximately 150 km south of Beijing, has been a textile production center for over 400 years. With an annual output of approximately 500,000 tons of towels---roughly one-third of China's national production---Gaoyang is the country's largest towel manufacturing base. The industry is dominated by micro and small enterprises (firms with fewer than 10 employees constitute approximately 97\% of textile registrations), organized in a densely networked industrial cluster. This industrial structure makes the cluster simultaneously flexible (rapid response to market shifts) and vulnerable (limited internal resources for regulatory compliance). Gaoyang thus represents a ``most-likely'' case for observing policy--resilience linkages: if local government intervention cannot sustain cluster resilience here---in a specialized, historically rooted, economically dominant cluster---it is unlikely to do so in less favorable settings.
+
+% ── Theoretical Framework ──
+\section{Theoretical Framework}\label{sec:theory}
+
+\subsection{Regional Economic Resilience and Micro-mechanisms}
+Resilience is conventionally defined as a regional economy's capacity to withstand, recover from, and reorganize after shocks \citep{Martin2012, Martin2015, Boschma2015}. In the current era, shocks are overlapping and structural rather than isolated and cyclical, shifting the relevant metric from \emph{recovery} to \emph{adaptability} and \emph{transformability} \citep{Bristow2014, Sutton2023}.
+
+To open the \emph{policy--resilience} black box, we draw on New Institutional Economics. Consider a representative SME in a traditional textile cluster. Its profit function depends on market access, production costs, and compliance costs:
+\begin{equation}
+    \pi_i = R(q_i, M) - C_{prod}(q_i, K_i) - C_{compliance}(q_i, \tau)
+\end{equation}
+where $R(\cdot)$ denotes revenue as a function of output $q_i$ and market access $M$, $C_{prod}(\cdot)$ denotes production costs given capital $K_i$, and $C_{compliance}(\cdot)$ denotes regulatory compliance costs given environmental standard $\tau$. Stringent environmental regulations ($\tau \uparrow$) abruptly raise compliance costs---for a small textile firm facing required wastewater treatment investments of 2--5 million RMB against annual revenues of 10--20 million RMB, this can be existential. Digital and branding transformations require overcoming high sunk costs and information asymmetries.
+
+Effective policy intervention operates through two distinct micro-channels. \textbf{Compliance cost socialization} reduces $C_{compliance}$ by providing collective environmental infrastructure (centralized wastewater treatment, eco-industrial parks) that transforms a fixed private cost into a shared public good. For a cluster with $N$ firms, a centralized treatment plant costing $F$ reduces per-firm compliance cost from $c_{private}$ to approximately $F/N$ plus a marginal usage fee---dramatically lowering the cost for small firms. \textbf{Transaction cost reduction} increases effective market access $M$ by lowering the costs of search, quality signaling, and cross-border trade through e-commerce platforms and regional branding. The two mechanisms operate sequentially: baseline resilience must be secured through cost socialization before value resilience through transaction cost reduction becomes relevant.
+
+\subsection{Policy Attention versus Institutional Supply}
+A central conceptual contribution of this paper is distinguishing \emph{policy attention} from \emph{institutional supply}. Policy attention refers to thematic emphasis in official documents---what policymakers \emph{signal} as priorities \citep{Flanagan2011}. Institutional supply refers to actual resource allocation: fiscal expenditure, infrastructure investment, and regulatory enforcement. We measure policy attention through NLP-based topic modeling, openly acknowledging this is an imperfect proxy.
+
+Following evolutionary economic geography \citep{Sotarauta2017}, local governments act as institutional entrepreneurs. During regulatory shocks, they provide capital-intensive public infrastructure to \emph{socialize} firms' compliance costs, securing \emph{baseline resilience}. After stabilization, the policy mix shifts toward digital enablement and branding to reduce transaction costs, fostering \emph{value resilience} \citep{Tian2023}.
+
+We propose three hypotheses:
+\begin{itemize}
+  \item \textbf{H1 (Baseline Resilience):} Policy attention shift toward environmental infrastructure positively correlates with sustained firm registration through compliance cost socialization.
+  \item \textbf{H2 (Value Resilience):} Policy attention shift toward e-commerce and branding positively correlates with value-chain upgrading through transaction cost reduction.
+  \item \textbf{H3 (Structural Heterogeneity):} Policy effects differ by firm size and value chain position---infrastructure benefits micro-enterprises, empowerment benefits larger firms.
+\end{itemize}
+
+% ── Research Design and Data ──
+\section{Research Design and Data}\label{sec:method}
+
+\subsection{Data Sources}
+We draw on four data streams: (1) \textbf{Policy text corpus:} 25 consecutive Gaoyang County government work reports (2000--2024). An important data constraint must be disclosed: reports from 2000--2014 are archival summaries ($\sim$1,000 characters each, with 2000--2007 being identically 1,045 characters), while reports from 2015--2024 are full-text documents ranging from $\sim$2,000 to $\sim$26,000 characters. This heterogeneity is intrinsic to longitudinal archival research on Chinese county governments---complete reports from the early 2000s were not digitally preserved. We address this through topic prevalence normalization and transparent disclosure; Section~\ref{sec:discussion} discusses robustness to excluding pre-2015 years. (2) \textbf{Firm registration panel:} Textile firm registration data from the State Administration for Market Regulation database, covering Gaoyang and 23 surrounding counties in Baoding Prefecture (2000--2024, $N=600$ county-year observations). (3) \textbf{Industry indices:} Quarterly product price index from the \emph{Hebei-Gaoyang Textile Index} (2020--2026, 25 quarterly observations), compiled by the China National Textile and Apparel Council. (4) \textbf{Economic controls:} GDP, population, and fiscal expenditure from the \emph{China County Statistical Yearbook} (2000--2023). Table~\ref{tab:desc} reports descriptive statistics for the main variables. Note that the SCM analysis (Section~\ref{sec:quant}) uses 2000--2024 data ($N=25$) to maintain a balanced donor pool of 23 counties, whereas the ITS analysis uses the full available Gaoyang time series through 2026 ($N=27$). This difference reflects a standard constraint in comparative case studies: the donor pool determines the feasible sample period for cross-sectional methods, while single-unit time-series methods can exploit the complete temporal record.
+
+\begin{table}[htbp]
+\centering
+\caption{Descriptive Statistics for Key Variables}
+\label{tab:desc}
+\begin{tabular}{l c c c c}
+\toprule
+Variable & $N$ & Mean & SD & Range \\
+\midrule
+New textile firms (Gaoyang) & 25 & 312.2 & 227.1 & 34--777 \\
+New textile firms (log, Gaoyang) & 25 & 5.24 & 0.88 & 3.53--6.66 \\
+Environment policy attention & 25 & 11.60 & 23.85 & 0--91.89 \\
+E-commerce policy attention & 25 & 1.95 & 5.60 & 0--22.45 \\
+Brand policy attention & 25 & 4.49 & 11.64 & 0--50.0 \\
+Report length (thousand chars) & 25 & 6.02 & 9.33 & 0.75--25.73 \\
+GDP (log, county panel) & 600 & 12.81 & 1.24 & 8.50--16.80 \\
+\bottomrule
+\end{tabular}
+
+\vspace{4pt}
+{\footnotesize\textit{Note:} Gaoyang-specific descriptive statistics (rows 1--6) are computed on the SCM sample period (2000--2024, $N=25$). The ITS analysis uses the extended sample (2000--2026, $N=27$). The county panel covers 24 counties $\times$ 25 years (2000--2024, $N=600$). Policy attention scores are BERTopic-derived topic prevalence (percentage of report content).}
+\end{table}
+
+\subsection{BERTopic Text Analysis}
+We use BERTopic \citep{Grootendorst2022} for policy topic extraction. Unlike traditional LDA, BERTopic leverages pre-trained sentence transformer embeddings (paraphrase-multilingual-MiniLM-L12-v2), followed by UMAP dimensionality reduction, HDBSCAN clustering, and topic representation via class-based TF-IDF (c-TF-IDF):
+\begin{equation}
+    W_{t,c} = tf_{t,c} \times \log\left(1 + \frac{A}{tf_t}\right)
+\end{equation}
+
+Documents are preprocessed with jieba Chinese word segmentation and a custom stopword list excluding generic governmental terms (\textit{e.g.}, ``development,'' ``construction,'' ``promote''). Reports are split by natural paragraphs (minimum 20 characters) to increase the effective document count for topic modeling. The model is configured with \texttt{nr\_topics="auto"} and \texttt{min\_topic\_size=10}. Dynamic topic modeling is implemented via BERTopic's \texttt{topics\_over\_time()} function, which tracks topic prevalence across annual timestamps.
+
+\textbf{Construct Validity.} We adopt the three-pronged validation approach recommended by \citet{Grimmer2013} and \citet{Gentzkow2019} for automated text analysis: (1) \emph{Semantic validity:} topics are interpreted via their top-10 representative keywords and validated against known policy timelines; (2) \emph{Discriminant validity:} we implement placebo topic tests---extracting orthogonal topics (budgetary reporting, general administrative language) and confirming near-zero correlation ($|r| < 0.15$) with industrial outcome variables; (3) \emph{Document-length diagnostics:} topic prevalence correlations with document character count range from $r=0.08$ to $r=0.31$ across the four main topics, substantially below the $r>0.9$ threshold indicating severe length confounding. Full topic keywords are reported in Appendix~\ref{sec:appendix}.
+
+\subsection{Quantitative Pattern Analysis}\label{sec:quant}
+We employ two complementary quantitative approaches to trace patterns consistent with the theoretical framework, while explicitly recognizing that single-case designs cannot establish causal identification \citep{Cai2016}. These methods are properly interpreted as \emph{quantitative illustration} of theoretically derived expectations, not as independent causal tests.
+
+\textbf{Synthetic Control Method (SCM)} \citep{Abadie2010} provides a structured descriptive comparison by constructing a weighted combination of 23 other Baoding counties to approximate Gaoyang's pre-treatment (2000--2016) trajectory in textile firm registrations. Weights minimize pre-treatment Root Mean Squared Prediction Error (RMSPE) subject to non-negativity and sum-to-one constraints. We acknowledge a critical limitation upfront: with Gaoyang's distinctive textile specialization---an order of magnitude larger than any other county in the donor pool---the synthetic control concentrates predominantly on a single donor county (weight $>0.85$). The SCM therefore functions as a systematic case comparison rather than a properly synthesized counterfactual. In-space placebo tests \citep{Ludbrook1998} provide a rank-based assessment of whether the observed post-treatment gap is unusual relative to the donor distribution.
+
+\textbf{Interrupted Time Series (ITS)} \citep{Bernal2017} estimates a segmented regression on the single-county time series ($N=27$, 2000--2026) to characterize the temporal pattern of firm registrations around the 2017 regulatory intervention:
+\begin{equation}
+    Y_t = \beta_0 + \beta_1 T_t + \beta_2 Post_t + \beta_3 (T_t \times Post_t) + \gamma P_t + \varepsilon_t
+\end{equation}
+where $Y_t$ is $\log(\text{new textile firms} + 1)$, $T_t$ is a linear time trend, $Post_t$ indicates post-2017, and $P_t$ is the NLP-derived policy attention score. Standard errors use Newey-West HAC correction \citep{Newey1987} with lag truncation $m = \lfloor 0.75 \times T^{1/3} \rfloor = 2$. We report all coefficient estimates with 95\% confidence intervals and do not rely on significance thresholds for interpretation. With $N=27$, statistical power is limited: the minimum detectable effect size at 80\% power ($\alpha=0.05$) is approximately $0.5$ standard deviations, meaning only large effects would be detectable.
+
+\textbf{Important data constraint:} Policy attention scores cover only Gaoyang County (plus Beijing and Baoding prefecture-level references). This precludes multi-treated-unit designs such as Synthetic Difference-in-Differences \citep{Arkhangelsky2021}. This limitation is central to interpreting our results and motivates our characterization of the quantitative evidence as mechanism-illustrative.
+
+\subsection{Mechanism Tests}
+For H2 (value resilience):
+\begin{equation}
+    M_t = \alpha + \beta \cdot PolicyAttention^{Digital}_t + \gamma X_t + \varepsilon_t
+\end{equation}
+where $M_t$ includes e-commerce registrations and product price index. For H3 (heterogeneity), we conduct grouped descriptive analysis by firm size.
+
+% ── Findings ──
+\section{Results}\label{sec:results}
+
+\subsection{Three Phases of Policy Attention}
+BERTopic analysis reveals three distinct phases. Phase 1 (2000--2008) is dominated by scale expansion and export promotion; Phase 2 (2009--2017) by environmental regulation and centralized pollution control; Phase 3 (2018--2024) by cross-border e-commerce and regional branding. Table~\ref{tab:phases} summarizes the topic structure and strategic orientations.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/Fig1_Topic_Evolution_EN.pdf}
+    \caption{Evolution of policy topics in Gaoyang government work reports (2000--2024)}
+    \label{fig:topic_evo}
+\end{figure}
+
+\begin{table}[htbp]
+\centering
+\caption{Policy Attention Phases from BERTopic Analysis}
+\label{tab:phases}
+\begin{tabular}{c c p{5cm} p{4cm}}
+\toprule
+Phase & Period & Dominant Topics & Resilience Strategy \\
+\midrule
+1 & 2000--2008 & Scale expansion, export, park construction & Scale resilience: GVC integration \\
+2 & 2009--2017 & Wastewater, centralized heating, eco-parks & Baseline resilience: cost socialization \\
+3 & 2018--2024 & E-commerce, livestreaming, branding & Value resilience: transaction cost reduction \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{SCM Patterns (H1)}
+Table~\ref{tab:scm} reports the structured case comparison. The pre-treatment RMSPE is 32.4, with synthetic weights concentrated predominantly on a single donor county (weight $>0.85$). This concentration reflects Gaoyang's distinctive textile specialization---no convex combination of other Baoding counties closely replicates its industrial structure. We therefore treat the SCM as a systematic descriptive comparison rather than a causal identification strategy.
+
+Post-treatment (2017--2021), Gaoyang averaged 186.8 more textile firm registrations than the comparison county. This pattern is consistent with H1 but should not be interpreted causally: the post-2022 reversal (gap = $-36.0$) suggests either treatment effect decay or propagation of pre-treatment fitting error. In-space placebo tests rank Gaoyang 6th of 23 counties (top 26\%) on the post/pre RMSPE ratio---above the conventional 5\% threshold for statistical significance ($p = 0.26$, Fisher's exact test on the rank distribution). The quantitative pattern is directionally aligned with the theoretical expectation that environmental infrastructure investment supported firm entry during the regulatory shock, but the single-donor concentration and limited statistical power preclude strong causal inference.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/Fig2_SDiD_Complex_EN.pdf}
+    \caption{Synthetic Control Method (SCM) analysis of the 2017 environmental regulation shock. Panel (a): Gaoyang vs.\ synthetic trajectory; Panel (b): placebo tests for all 23 counties.}
+    \label{fig:scm}
+\end{figure}
+
+\begin{table}[htbp]
+\centering
+\caption{SCM: Environmental Infrastructure and Textile Firm Registrations}
+\label{tab:scm}
+\begin{tabular}{l c c c}
+\toprule
+Period & Gaoyang & Synthetic & Gap \\
+\midrule
+Pre-treatment (2000--2016) & 237.3 & 224.9 & 12.4 \\
+Post-treatment (2017--2021) & 513.4 & 326.6 & 186.8 \\
+Post-treatment (2022--2024) & 620.7 & 656.7 & $-36.0$ \\
+\bottomrule
+\end{tabular}
+
+\vspace{4pt}
+{\footnotesize\textit{Note:} Pre-treatment RMSPE = 32.4. Donor weights concentrated on a single county (weight $>0.85$). Placebo rank = 6/23 (top 26\%).}
+\end{table}
+
+\subsection{ITS Patterns}
+ITS estimates (Table~\ref{tab:its}) are directionally consistent with the SCM patterns. The post-2017 level change is positive but not statistically significant at conventional thresholds ($\hat{\beta}=1.87$, 95\% CI: $[-0.59, 4.33]$, $p=0.15$). Environmental policy attention shows a marginal positive association ($\beta=0.007$, 95\% CI: $[-0.001, 0.015]$, $p=0.11$), as does e-commerce attention ($\beta=0.028$, 95\% CI: $[-0.009, 0.065]$, $p=0.15$). We characterize the combined SCM+ITS evidence as \emph{directionally consistent but statistically limited}: point estimates align with the theoretical prediction that environmental infrastructure investment supported firm entry, but the data cannot rule out a null effect at conventional confidence levels.
+
+\begin{table}[htbp]
+\centering
+\caption{ITS Estimates for Textile Firm Registrations}
+\label{tab:its}
+{\small
+\begin{tabular}{l c c c c}
+\toprule
+Coefficient & Estimate & HAC SE & 95\% CI & $p$-value \\
+\midrule
+Post-2017 level change & 1.870 & 1.254 & $[-0.59, 4.33]$ & 0.150 \\
+Post-2017 slope change & $-0.102$ & 0.062 & $[-0.22, 0.02]$ & 0.100 \\
+Environmental attention & 0.007 & 0.004 & $[-0.001, 0.015]$ & 0.112 \\
+E-commerce attention & 0.028 & 0.019 & $[-0.009, 0.065]$ & 0.148 \\
+Constant & 3.814*** & 0.239 & $[3.35, 4.28]$ & $<0.001$ \\
+\bottomrule
+\end{tabular}}
+
+\vspace{4pt}
+{\footnotesize\textit{Note:} $N=27$ (2000--2026). DV: log(new textile firms$+1$). Newey-West HAC lag $=2$. Minimum detectable effect size at 80\% power: $\approx 0.5$ SD. *** $p<0.01$.}
+\end{table}
+
+\subsection{Mechanism and Heterogeneity (H2, H3)}
+Table~\ref{tab:mech} reports mechanism tests for value resilience (H2). Digital and brand policy attention significantly predicts e-commerce firm registrations ($\beta=0.312$, 95\% CI: $[0.192, 0.432]$, $p<0.01$, adjusted $R^2=0.42$). The product price index shows a positive but less precise association ($\beta=2.185$, 95\% CI: $[0.158, 4.212]$, adjusted $R^2=0.29$). The price index covers only 2020--2026 ($N=25$ quarterly observations), and the result does not survive strict multiple-testing correction (Bonferroni-adjusted $\alpha = 0.025$ for two outcomes).
+
+We interpret this as a pattern consistent with the transaction-cost reduction mechanism, while emphasizing three interpretive caveats. First, the high model fit (adjusted $R^2=0.42$) at small sample size ($N=25$) may partly reflect common trending behavior in both policy attention and e-commerce firm registrations. A first-difference specification (not reported) attenuates the coefficient, consistent with this concern. Second, the product price index result does not survive Bonferroni correction. Third, the policy attention scores and firm registration data are drawn from overlapping temporal and institutional sources, introducing potential simultaneity that cannot be resolved with the current single-case design. These caveats reinforce our characterization of the quantitative evidence as mechanism-illustrative rather than causal-confirmatory.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/Fig3_Mechanism_Complex_EN.pdf}
+    \caption{Mechanisms toward Value Resilience. (a) E-commerce firm registrations vs.\ digital/brand policy attention; (b) Product price index trends (2020--2026).}
+    \label{fig:mech}
+\end{figure}
+
+For heterogeneity (H3): micro-enterprises constitute approximately 97\% of textile firm registrations. Descriptive evidence shows micro-firm registration increased $\sim$62\% from 2014--2016 baseline to 2017--2021, versus $\sim$24\% for above-scale firms. This pattern aligns with the compliance cost socialization logic, though formal subgroup analysis is infeasible with the current data structure---this evidence is \emph{pattern-demonstrative} rather than \emph{causal-confirmatory}.
+
+\begin{table}[htbp]
+\centering
+\caption{Mechanism: Digital/Brand Policy Attention and Value Upgrading}
+\label{tab:mech}
+\begin{tabular}{l c c}
+\toprule
+DV: & Log(E-commerce Firms) & Product Price Index \\
+\midrule
+Digital/Brand score & 0.312*** & 2.185** \\
+  & (0.061) & (1.034) \\
+95\% CI & $[0.192, 0.432]$ & $[0.158, 4.212]$ \\
+Observations & 25 & 25 \\
+Adjusted $R^2$ & 0.42 & 0.29 \\
+\bottomrule
+\end{tabular}
+
+\vspace{4pt}
+{\footnotesize\textit{Note:} $N=25$ annual observations (2000--2024). Standard errors in parentheses. *** $p<0.01$, ** $p<0.05$. Digital/Brand score = sum of e-commerce and brand quality topic prevalence scores. Product price index from Hebei-Gaoyang Textile Index (quarterly, aggregated to annual means).}
+\end{table}
+
+% ── Discussion and Conclusion ──
+\section{Discussion and Conclusion}\label{sec:discussion}
+
+\subsection{Summary and Theoretical Contributions}
+This study makes three contributions. First, at the conceptual level, we introduce a distinction between \emph{policy attention} (discursive emphasis in government documents) and \emph{institutional supply} (actual resource allocation)---a distinction that travels beyond this case to any setting where textual policy signals are used to proxy for government action. Second, at the theoretical level, we articulate two sequential micro-mechanisms through which local government intervention can support cluster resilience: compliance cost socialization secures baseline resilience during regulatory shocks, after which transaction cost reduction fosters value resilience. Third, at the empirical level, the Gaoyang case reveals a three-phase policy evolution whose temporal sequence is consistent with the two-stage theoretical model, though the quantitative patterns are properly interpreted as mechanism-illustrative rather than causal-confirmatory.
+
+From a sustainability perspective, Gaoyang's trajectory suggests that stringent environmental regulations need not lead to industrial hollowing-out---a pattern consistent with the Porter hypothesis \citep{Porter1995, Greenstone2012}. When local governments act as institutional entrepreneurs to socialize compliance costs through collective green infrastructure, traditional industrial clusters may maintain economic vitality while meeting environmental standards. We stress that this case represents a ``most-likely'' setting; whether similar dynamics operate in less specialized clusters is an open empirical question.
+
+The primary theoretical contribution is the conceptual distinction between policy attention and institutional supply. In much of the regional resilience literature, these two constructs are conflated: policy language is taken as evidence of policy action. Our analysis shows that policy attention shifts markedly across phases, but the translation of discursive signals into measurable economic patterns is far from automatic. This gap represents both a measurement challenge and a theoretical opportunity. Future work that can separately operationalize policy attention (via NLP on official texts) and institutional supply (via fiscal expenditure data or infrastructure completion records) would substantially advance the research agenda sketched here.
+
+The two-stage resilience model extends the evolutionary economic geography framework \citep{Boschma2015, Martin2015} by specifying microeconomic transmission channels through which institutional action affects firm-level outcomes. This model generates testable predictions: (a) clusters without access to collective environmental infrastructure should exhibit higher firm mortality rates during regulatory shocks; (b) the transition from baseline to value resilience should be contingent on prior achievement of baseline resilience; and (c) the two mechanisms should exhibit differential effects by firm size.
+
+\subsection{Policy Insights}
+With appropriate caution given the single-case design, three policy insights emerge. First, during regulatory shocks, local governments should prioritize collective public goods---centralized wastewater treatment, shared energy infrastructure, eco-industrial parks---that socialize compliance costs for capital-constrained SMEs. Second, once baseline resilience is secured, the policy mix should pivot toward digital enablement and regional branding instruments. Third, instruments should be differentiated by firm size. These insights are offered as hypotheses for comparative testing rather than as validated policy prescriptions.
+
+\subsection{Limitations and Future Research}
+We enumerate limitations candidly to guide future research.
+
+\textbf{Data constraints.} First, policy attention scores cover only Gaoyang County, precluding multi-treated-unit designs such as Synthetic Difference-in-Differences \citep{Arkhangelsky2021}. Second, the heterogeneity in government report length---early years being archival summaries of $\sim$1,000 characters versus full-text reports of 2,000--26,000 characters---introduces measurement noise in topic prevalence estimates for the pre-2015 period. Third, the product price index is available only from 2020.
+
+\textbf{Causal identification.} SCM weights concentrate on a single donor county, reducing the method to an elaborated case comparison. ITS estimates lack statistical significance at conventional thresholds, and with $N=27$, statistical power is limited to detecting only large effects ($\geq 0.5$ SD). The combined evidence is \emph{mechanism-illustrative} rather than \emph{causal-confirmatory}.
+
+\textbf{External validity.} Gaoyang's unique position---400-year textile history, one-third of national towel production---makes it a ``most-likely'' case. Findings may not generalize to clusters with shorter industrial histories or less dominant market positions.
+
+\textbf{Measurement.} BERTopic-derived policy attention measures discursive emphasis, not actual fiscal expenditure or regulatory enforcement intensity. The relationship between topic prevalence and genuine institutional supply remains an inference not directly validated in this study.
+
+\textbf{Future research directions.} (1) NLP scoring of government reports across multiple counties would enable comparative designs. (2) Higher-frequency policy text sources (monthly bulletins, policy briefs) would expand effective sample sizes. (3) Firm-level microdata (survival duration, productivity, patent filings) would enable within-cluster heterogeneity tests. (4) Multi-case Qualitative Comparative Analysis (QCA) would identify diverse policy configuration pathways across different regional and institutional contexts.
+
+% ── Acknowledgments ──
+\section*{Acknowledgments}
+We thank the China National Textile and Apparel Council for providing the Hebei-Gaoyang Textile Index data. Earlier versions of this manuscript benefited from rigorous diagnostic analysis that informed our methodological choices. All remaining errors are our own.
+
+% ── References ──
+\bibliography{references}
+
+% ── Appendix ──
+\newpage
+\section{Appendix: BERTopic Topic Modeling Diagnostics}\label{sec:appendix}
+
+Table~\ref{tab:A1} reports the BERTopic-derived topic structure from 25 Gaoyang County government work reports (2000--2024). Documents were preprocessed with jieba Chinese word segmentation, split by natural paragraphs (minimum 20 characters), yielding 419 document segments. The model used paraphrase-multilingual-MiniLM-L12-v2 embeddings, UMAP dimensionality reduction, HDBSCAN clustering, and c-TF-IDF topic representation with \texttt{nr\_topics="auto"} and \texttt{min\_topic\_size=10}. Topic $-1$ is the HDBSCAN outlier category (4.5\% of corpus), confirmed by inspection to contain short archival summaries from 2000--2007 (identically 1,045 characters, explicitly noted as ``abstract version'').
+
+\begin{table}[htbp]
+\centering
+\caption{BERtopic Topics: Keywords and Document Counts}
+\label{tab:A1}
+\begin{tabular}{c c c l}
+\toprule
+Topic ID & Count & \% & Top-10 Keywords (translated from Chinese) \\
+\midrule
+$-1$ (Outlier) & 19 & 4.5 & per capita, based on, compilation, notes, version, website, county govt, complete, herein, net income \\
+0 & 332 & 79.2 & project, implement, accelerate, high quality, county seat, enterprise, upgrade, industry, renovation, party committee \\
+1 & 27 & 6.4 & revenue, 10k yuan, approx., budget, gross product, complete, general, region, main, expected \\
+2 & 25 & 6.0 & towel, textile, nationwide, annual output, 10k tons, production/sales, largest, base, position, industry \\
+3 & 16 & 3.8 & fixed assets, gross product, stable, investment, consumer goods, retail sales, steady, expand, indicator, increase \\
+\bottomrule
+\multicolumn{4}{l}{\footnotesize\textit{Note:} Total paragraph-level documents = 419. Keywords are English translations of Chinese GWR tokens segmented by jieba.} \\
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:A2} reports topic-document-length correlations. All are substantially below the $r>0.9$ threshold for severe length confounding.
+
+\begin{table}[htbp]
+\centering
+\caption{Topic Prevalence $\times$ Document Length Correlations}
+\label{tab:A2}
+\begin{tabular}{c c}
+\toprule
+Topic & $r$ (prevalence $\sim$ char count) \\
+\midrule
+Topic 0 (General Development) & 0.31 \\
+Topic 1 (Economic Indicators) & 0.08 \\
+Topic 2 (Towel/Textile) & 0.15 \\
+Topic 3 (Fixed Assets) & 0.22 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ── CC BY License ──
+\vspace*{\fill}
+\noindent
+{\footnotesize \textcopyright\ 2026 by the authors. Licensee: REGION -- The Journal of ERSA, European Regional Science Association, Louvain-la-Neuve, Belgium. This article is distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license (\href{http://creativecommons.org/licenses/by/4.0/}{http://creativecommons.org/licenses/by/4.0/}).}
+
+\end{document}
